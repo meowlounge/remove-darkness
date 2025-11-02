@@ -25,16 +25,20 @@ public class RemoveDarknessEffect implements ModInitializer {
 		LOGGER.info("RemoveDarknessEffect mod initialized!");
 		TogglePayload.register();
 
-		ServerPlayNetworking.registerGlobalReceiver(TogglePayload.ID, (payload, context) -> {
-			boolean enabled = payload.enabled();
-			ServerPlayerEntity player = context.player();
+		ServerPlayNetworking.registerGlobalReceiver(TogglePayload.ID, (payload, context) ->
+				context.server().execute(() -> {
+					ServerPlayerEntity player = context.player();
 
-			if (enabled) {
-				REMOVAL_DISABLED.remove(player.getUuid());
-			} else {
-				REMOVAL_DISABLED.add(player.getUuid());
-			}
-		});
+					if (player == null) {
+						return;
+					}
+
+					if (payload.enabled()) {
+						REMOVAL_DISABLED.remove(player.getUuid());
+					} else {
+						REMOVAL_DISABLED.add(player.getUuid());
+					}
+				}));
 
 		ServerPlayConnectionEvents.DISCONNECT.register((handler, server) ->
 				REMOVAL_DISABLED.remove(handler.player.getUuid()));

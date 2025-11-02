@@ -14,14 +14,15 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 
-import static dev.prodbyeagle.RemoveDarknessEffect.MOD_ID;
-
 public class RemoveDarknessEffectClient implements ClientModInitializer {
-	public static final Identifier CATEGORY_CUSTOM_TITLE = Identifier.of(MOD_ID, "title");
+	private static final String TOGGLE_TRANSLATION_KEY = "key." + RemoveDarknessEffect.MOD_ID + ".toggle";
+	private static final String MESSAGE_PREFIX = "message." + RemoveDarknessEffect.MOD_ID + ".";
+
+	public static final Identifier CATEGORY_CUSTOM_TITLE = Identifier.of(RemoveDarknessEffect.MOD_ID, "title");
 
 	private static final KeyBinding TOGGLE_KEY = KeyBindingHelper.registerKeyBinding(
 			new KeyBinding(
-					"key.rde.toggle",
+					TOGGLE_TRANSLATION_KEY,
 					InputUtil.Type.KEYSYM,
 					GLFW.GLFW_KEY_G,
 					KeyBinding.Category.create(CATEGORY_CUSTOM_TITLE)
@@ -29,21 +30,27 @@ public class RemoveDarknessEffectClient implements ClientModInitializer {
 	);
 	private static boolean removalEnabled = true;
 
-	private static void sendTogglePacket(boolean enabled) {
+	private static boolean sendTogglePacket(boolean enabled) {
+		if (!ClientPlayNetworking.canSend(TogglePayload.ID)) {
+			RemoveDarknessEffect.LOGGER.warn("Skipping toggle packet; server missing {}", TogglePayload.ID.id());
+			return false;
+		}
+
 		ClientPlayNetworking.send(new TogglePayload(enabled));
+		return true;
 	}
 
 	private static void sendFeedback(MinecraftClient client, boolean enabled) {
 		if (client.player != null) {
-			client.player.sendMessage(
-					Text.translatable(
-							enabled
-									? "message.rde.enabled"
-									: "message.rde.disabled"
-					),
-					true
-			);
-			client.player.playSound(SoundEvents.BLOCK_NOTE_BLOCK_PLING.value(), 0.1F, 2F);
+			client.player.sendMessage(Text.translatable(MESSAGE_PREFIX + (enabled ? "enabled" : "disabled")), true);
+			client.player.playSound(SoundEvents.BLOCK_AMETHYST_BLOCK_BREAK, 0.4F, 0.3F);
+		}
+	}
+
+	private static void sendUnsupportedFeedback(MinecraftClient client) {
+		if (client.player != null) {
+			client.player.sendMessage(Text.translatable(MESSAGE_PREFIX + "unsupported"), true);
+			client.player.playSound(SoundEvents.BLOCK_NOTE_BLOCK_BASS.value(), 0.1F, 0.4F);
 		}
 	}
 
@@ -62,9 +69,14 @@ public class RemoveDarknessEffectClient implements ClientModInitializer {
 			}
 
 			while (TOGGLE_KEY.wasPressed()) {
-				removalEnabled = !removalEnabled;
-				sendTogglePacket(removalEnabled);
-				sendFeedback(client, removalEnabled);
+				boolean nextState = !removalEnabled;
+
+				if (sendTogglePacket(nextState)) {
+					removalEnabled = nextState;
+					sendFeedback(client, removalEnabled);
+				} else {
+					sendUnsupportedFeedback(client);
+				}
 			}
 		});
 	}
