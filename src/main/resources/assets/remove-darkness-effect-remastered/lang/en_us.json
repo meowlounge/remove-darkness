@@ -1,0 +1,7 @@
+{
+  "key.rde.toggle": "Toggle Darkness Removal",
+  "key.categories.rde": "Remove Darkness Effect",
+  "key.category.rde.title": "Remove Darkness Effect",
+  "message.rde.enabled": "Darkness removal enabled",
+  "message.rde.disabled": "Darkness removal disabled"
+}

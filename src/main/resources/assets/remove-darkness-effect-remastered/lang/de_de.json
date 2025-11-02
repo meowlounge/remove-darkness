@@ -1,0 +1,7 @@
+{
+  "key.rde.toggle": "Dunkelheitsentfernung umschalten",
+  "key.categories.rde": "Dunkelheitseffekt entfernen",
+  "key.category.rde.title": "Remove Darkness Effect",
+  "message.rde.enabled": "Dunkelheitsentfernung aktiviert",
+  "message.rde.disabled": "Dunkelheitsentfernung deaktiviert"
+}

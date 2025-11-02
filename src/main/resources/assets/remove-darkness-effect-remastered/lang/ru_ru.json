@@ -1,0 +1,7 @@
+{
+  "key.rde.toggle": "Переключить удаление темноты",
+  "key.categories.rde": "Удаление эффекта темноты",
+  "key.category.rde.title": "Remove Darkness Effect",
+  "message.rde.enabled": "Удаление темноты включено",
+  "message.rde.disabled": "Удаление темноты выключено"
+}
