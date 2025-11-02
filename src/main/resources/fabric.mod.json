@@ -12,7 +12,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"dev.prodbyeagle.RemoveDarknessEffect"
+          "dev.prodbyeagle.RemoveDarknessEffect"
+		],
+		"client": [
+          "dev.prodbyeagle.RemoveDarknessEffectClient"
 		]
 	},
 	"depends": {
