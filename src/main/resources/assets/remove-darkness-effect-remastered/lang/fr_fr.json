@@ -1,7 +1,8 @@
 {
-  "key.rde.toggle": "Basculer la suppression de l'obscurité",
-  "key.categories.rde": "Suppression de l'effet d'obscurité",
+  "key.rde.toggle": "Activer la suppression de l'obscurite",
+  "key.categories.rde": "Suppression de l'effet d'obscurite",
   "key.category.rde.title": "Remove Darkness Effect",
-  "message.rde.enabled": "Suppression de l'obscurité activée",
-  "message.rde.disabled": "Suppression de l'obscurité désactivée"
+  "message.rde.enabled": "Suppression de l'obscurite activee",
+  "message.rde.disabled": "Suppression de l'obscurite desactivee",
+  "message.rde.unsupported": "Le serveur ne prend pas en charge la suppression de l'obscurite"
 }

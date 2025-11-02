@@ -1,7 +1,8 @@
 {
-  "key.rde.toggle": "Переключить удаление темноты",
-  "key.categories.rde": "Удаление эффекта темноты",
+  "key.rde.toggle": "Perekliuchit udalenie temnoty",
+  "key.categories.rde": "Udalenie effekta temnoty",
   "key.category.rde.title": "Remove Darkness Effect",
-  "message.rde.enabled": "Удаление темноты включено",
-  "message.rde.disabled": "Удаление темноты выключено"
+  "message.rde.enabled": "Udalenie temnoty vkliucheno",
+  "message.rde.disabled": "Udalenie temnoty otkliucheno",
+  "message.rde.unsupported": "Server ne podderzhivaet udalenie temnoty"
 }

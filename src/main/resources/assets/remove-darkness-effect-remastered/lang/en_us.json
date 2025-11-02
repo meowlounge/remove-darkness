@@ -3,5 +3,6 @@
   "key.categories.rde": "Remove Darkness Effect",
   "key.category.rde.title": "Remove Darkness Effect",
   "message.rde.enabled": "Darkness removal enabled",
-  "message.rde.disabled": "Darkness removal disabled"
+  "message.rde.disabled": "Darkness removal disabled",
+  "message.rde.unsupported": "Server does not support darkness removal"
 }

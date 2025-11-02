@@ -1,7 +1,8 @@
 {
-  "key.rde.toggle": "Alternar eliminación de oscuridad",
+  "key.rde.toggle": "Alternar eliminacion de oscuridad",
   "key.categories.rde": "Eliminar efecto de oscuridad",
   "key.category.rde.title": "Remove Darkness Effect",
-  "message.rde.enabled": "Eliminación de oscuridad activada",
-  "message.rde.disabled": "Eliminación de oscuridad desactivada"
+  "message.rde.enabled": "Eliminacion de oscuridad activada",
+  "message.rde.disabled": "Eliminacion de oscuridad desactivada",
+  "message.rde.unsupported": "El servidor no admite eliminar la oscuridad"
 }
