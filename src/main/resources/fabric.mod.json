@@ -3,15 +3,15 @@
 	"id": "rde",
 	"version": "${version}",
 	"name": "Remove Darkness Effect [REMASTERED]",
-	"description": "Removes the Darkness Effect from the game",
+	"description": "Removes the Darkness status effect in singleplayer worlds",
 	"authors": [
 		"prodbyeagle"
 	],
 	"license": "MIT",
 	"icon": "assets/rde/icon.png",
-	"environment": "*",
+	"environment": "client",
 	"entrypoints": {
-		"main": [
+		"client": [
           "dev.prodbyeagle.RemoveDarknessEffect"
 		]
 	},
