@@ -4,5 +4,6 @@
   "key.category.rde.title": "Remove Darkness Effect",
   "message.rde.enabled": "Dunkelheitsentfernung aktiviert",
   "message.rde.disabled": "Dunkelheitsentfernung deaktiviert",
-  "message.rde.unsupported": "Server unterstützt die Dunkelheitsentfernung nicht"
+  "message.rde.unsupported": "Server unterstützt die Dunkelheitsentfernung nicht",
+  "message.rde.server_warning": "Warnung: Dieser Server könnte Remove Darkness Effect als Cheat behandeln. Deaktiviere das Mod, um mögliche Banns zu vermeiden."
 }

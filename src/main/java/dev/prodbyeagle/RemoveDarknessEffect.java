@@ -30,25 +30,47 @@ public class RemoveDarknessEffect implements ModInitializer {
 					ServerPlayerEntity player = context.player();
 
 					if (player == null) {
+						LOGGER.warn("Toggle payload received without an attached player; ignoring.");
 						return;
 					}
 
+					UUID uuid = player.getUuid();
+					String name = player.getName().getString();
+
 					if (payload.enabled()) {
-						REMOVAL_DISABLED.remove(player.getUuid());
+						boolean removed = REMOVAL_DISABLED.remove(uuid);
+						LOGGER.info("Darkness removal enabled for {} (uuid: {}). stateRemoved={}", name, uuid, removed);
 					} else {
-						REMOVAL_DISABLED.add(player.getUuid());
+						boolean added = REMOVAL_DISABLED.add(uuid);
+						LOGGER.info("Darkness removal disabled for {} (uuid: {}). stateAdded={}", name, uuid, added);
 					}
 				}));
 
-		ServerPlayConnectionEvents.DISCONNECT.register((handler, server) ->
-				REMOVAL_DISABLED.remove(handler.player.getUuid()));
+		ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> {
+			UUID uuid = handler.player.getUuid();
+			if (REMOVAL_DISABLED.remove(uuid)) {
+				LOGGER.debug("Cleared toggle state for {} (uuid: {}) on disconnect.", handler.player.getName().getString(), uuid);
+			}
+		});
 
 		ServerTickEvents.END_WORLD_TICK.register(world -> {
 			if (world instanceof ServerWorld serverWorld) {
 				for (ServerPlayerEntity player : serverWorld.getPlayers()) {
-					if (!REMOVAL_DISABLED.contains(player.getUuid())
-							&& player.hasStatusEffect(StatusEffects.DARKNESS)) {
+					UUID uuid = player.getUuid();
+					String name = player.getName().getString();
+
+					if (REMOVAL_DISABLED.contains(uuid)) {
+						if (LOGGER.isDebugEnabled() && player.hasStatusEffect(StatusEffects.DARKNESS)) {
+							LOGGER.debug("Skipping darkness removal for {} (uuid: {}) - player disabled it.", name, uuid);
+						}
+						continue;
+					}
+
+					if (player.hasStatusEffect(StatusEffects.DARKNESS)) {
+						LOGGER.debug("Removing darkness effect from {} (uuid: {}).", name, uuid);
 						player.removeStatusEffect(StatusEffects.DARKNESS);
+					} else if (LOGGER.isTraceEnabled()) {
+						LOGGER.trace("No darkness effect detected for {} (uuid: {}); nothing to remove.", name, uuid);
 					}
 				}
 			}
