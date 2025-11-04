@@ -1,9 +1,0 @@
-{
-  "key.rde.toggle": "Toggle Darkness Removal",
-  "key.categories.rde": "Remove Darkness Effect",
-  "key.category.rde.title": "Remove Darkness Effect",
-  "message.rde.enabled": "Darkness removal enabled",
-  "message.rde.disabled": "Darkness removal disabled",
-  "message.rde.unsupported": "Server does not support darkness removal",
-  "message.rde.server_warning": "Warning: This server may treat Remove Darkness Effect as a cheat. Disable the mod to avoid possible bans."
-}

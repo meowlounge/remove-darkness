@@ -1,9 +1,0 @@
-{
-  "key.rde.toggle": "Perekliuchit udalenie temnoty",
-  "key.categories.rde": "Udalenie effekta temnoty",
-  "key.category.rde.title": "Remove Darkness Effect",
-  "message.rde.enabled": "Udalenie temnoty vkliucheno",
-  "message.rde.disabled": "Udalenie temnoty otkliucheno",
-  "message.rde.unsupported": "Server ne podderzhivaet udalenie temnoty",
-  "message.rde.server_warning": "Preduprezhdenie: etot server mozhet schitat Remove Darkness Effect chitom. Otkliuchite mod, chtoby izbezhat vozmozhnogo bana."
-}

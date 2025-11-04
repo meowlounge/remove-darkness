@@ -1,9 +1,0 @@
-{
-  "key.rde.toggle": "Activer la suppression de l'obscurite",
-  "key.categories.rde": "Suppression de l'effet d'obscurite",
-  "key.category.rde.title": "Remove Darkness Effect",
-  "message.rde.enabled": "Suppression de l'obscurite activee",
-  "message.rde.disabled": "Suppression de l'obscurite desactivee",
-  "message.rde.unsupported": "Le serveur ne prend pas en charge la suppression de l'obscurite",
-  "message.rde.server_warning": "Avertissement : ce serveur peut considérer Remove Darkness Effect comme de la triche. Désactivez le mod pour éviter d'éventuelles sanctions."
-}

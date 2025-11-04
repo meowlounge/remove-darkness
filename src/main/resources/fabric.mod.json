@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "remove-darkness-effect-remastered",
+	"id": "rde",
 	"version": "${version}",
 	"name": "Remove Darkness Effect [REMASTERED]",
 	"description": "Removes the Darkness Effect from the game",
@@ -8,14 +8,11 @@
 		"prodbyeagle"
 	],
 	"license": "MIT",
-	"icon": "assets/remove-darkness-effect-remastered/icon.png",
+	"icon": "assets/rde/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
           "dev.prodbyeagle.RemoveDarknessEffect"
-		],
-		"client": [
-          "dev.prodbyeagle.RemoveDarknessEffectClient"
 		]
 	},
 	"depends": {

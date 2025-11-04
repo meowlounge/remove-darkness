@@ -1,9 +1,0 @@
-{
-  "key.rde.toggle": "Alternar eliminacion de oscuridad",
-  "key.categories.rde": "Eliminar efecto de oscuridad",
-  "key.category.rde.title": "Remove Darkness Effect",
-  "message.rde.enabled": "Eliminacion de oscuridad activada",
-  "message.rde.disabled": "Eliminacion de oscuridad desactivada",
-  "message.rde.unsupported": "El servidor no admite eliminar la oscuridad",
-  "message.rde.server_warning": "Advertencia: este servidor podría considerar Remove Darkness Effect como una trampa. Desactiva el mod para evitar posibles baneos."
-}
