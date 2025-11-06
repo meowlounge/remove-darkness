@@ -12,21 +12,10 @@ If you want to use it on a **multiplayer server**, download and install the **[S
 Using client-side mods on servers without permission can violate their rules.  
 **Always check server policies before joining.**
 
----
-
 ## 🧩 Overview
 
 **Remove-Darkness** removes the “darkness” overlay that appears in low-light conditions (such as during Warden encounters or the Darkness potion effect).  
 It does **not** change brightness, mob behavior, or gameplay — only the **visual overlay** is affected.
-
----
-
-## ⚙️ Features
-
-* Toggle the darkness effect **on or off** anytime.  
-* **Default key:** `G`  
-* Change it under *Options → Controls → Remove Darkness → Toggle*.  
-* Saves your toggle state automatically between sessions.
 
 ---
 
