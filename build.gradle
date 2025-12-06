@@ -18,6 +18,15 @@ repositories {
 	// for more information about repositories.
 }
 
+sourceSets {
+	main {
+		java {
+			// Keep client-only code out of the common/main sources.
+			exclude "dev/prodbyeagle/**"
+		}
+	}
+}
+
 loom {
 	splitEnvironmentSourceSets()
 
