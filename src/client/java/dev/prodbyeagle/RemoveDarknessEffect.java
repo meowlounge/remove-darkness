@@ -9,6 +9,7 @@ import net.minecraft.client.util.InputUtil;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +17,10 @@ import org.slf4j.LoggerFactory;
 public class RemoveDarknessEffect implements ClientModInitializer {
 	public static final String MOD_ID = "remove-darkness-effect-remastered";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+	private static final KeyBinding.Category RDE_CATEGORY =
+			KeyBinding.Category.create(Identifier.of("remove_darkness", "category"));
+
 
 	private final DarknessEffectCleaner cleaner = new DarknessEffectCleaner();
 
@@ -27,7 +32,7 @@ public class RemoveDarknessEffect implements ClientModInitializer {
 			"key.rde.toggle",
 			InputUtil.Type.KEYSYM,
 			GLFW.GLFW_KEY_G,
-			KeyBinding.Category.GAMEPLAY
+			RDE_CATEGORY
 		));
 
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
