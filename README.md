@@ -27,6 +27,12 @@ Using client-side mods on servers without permission can violate their rules.
 **Remove-Darkness** removes the “darkness” overlay that appears in low-light conditions (such as during Warden encounters or the Darkness potion effect).  
 It does **not** change brightness, mob behavior, or gameplay — only the **visual overlay** is affected.
 
+## ✅ Compatibility
+
+- Minecraft Java Edition 26.1–26.2
+- Fabric Loader 0.19.3 or newer
+- Java 25 or newer
+
 ---
 
 ## 🌍 Languages
